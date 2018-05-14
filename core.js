@@ -25,10 +25,11 @@ function mainController($scope, $http) {
             .error(function(data) {
                 console.log('Error: ' + data);
             });
+		
+		window.location.reload(true);
 						
     };
 
-    // delete a todo after checking it
     $scope.deleteClient = function(id) {
         $http.delete('/clients/' + id)
             .success(function(data) {
@@ -39,7 +40,9 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
 			
-		// when landing on the page, get all todos and show them
+		window.location.reload(true);
+
+/*		
 		$http.get('/clients')
 			.success(function(data) {
 				$scope.clients = data;
@@ -48,6 +51,11 @@ function mainController($scope, $http) {
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
-    };
+			
+			//*/
+	    };
+		
+		
+		//$scope.$apply();
 
 }
