@@ -40,11 +40,10 @@ MongoClient.connect('mongodb://localhost:27017/drivercheck', (err, client) => {
 		
     });
 
-
     app.post('/clients', function(req, res) {
 		db.collection('clients').save(req.body, (err, result) => {
 			if (err) return console.log(err)
-			console.log('saved to database')
+			//console.log('saved to database')
 		})
 		
 		db.collection('clients').find().toArray((err, clients) => {
@@ -55,7 +54,7 @@ MongoClient.connect('mongodb://localhost:27017/drivercheck', (err, client) => {
 	});
 	
 	app.delete('/clients/:client_id', (req, res) => {
-		console.log(req.params.client_id);
+		//console.log(req.params.client_id);
 		var client_id = req.params.client_id;
 		
 		var query = db
@@ -63,13 +62,10 @@ MongoClient.connect('mongodb://localhost:27017/drivercheck', (err, client) => {
 		.remove( {_id: ObjectID.createFromHexString( client_id ) },
 		(err, clients) => {
 			if (err) return console.log(err)
-			console.log(clients);
+			//console.log(clients);
 		})
 		
-		db.collection('clients').find().toArray((err, clients) => {
-			if (err) return console.log(err)
-			res.json(clients);
-		})
+		
 	});
 	
     app.get('*', function(req, res) {

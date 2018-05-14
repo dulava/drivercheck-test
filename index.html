@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
     <style>
         html                    { overflow-y:scroll; }
-        body                    { padding-top:50px; }
-        #client-list              { margin-bottom:30px; }
+        body                    { padding-top:10px; }
+        #client-list              { margin-bottom:10px; }
     </style>
 
     <!-- SPELLS -->
@@ -29,18 +29,18 @@
     <div class="container">
 
         <!-- HEADER AND TODO COUNT -->
-        <div class="jumbotron text-center">
-            <h1>Clients<span class="label label-info">{{ clients.length }}</span></h1>
+        <div class="text-center">
+            <h3>Clients <span class="label label-info">{{ clients.length }}</span></h3>
         </div>
 
         <!-- TODO LIST -->
         <div id="client-list" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
+            <div class="col-sm-offset-4">
 
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <div class="checkbox" ng-repeat="client in clients">
                     <label>
-                        <input type="checkbox" ng-click="deleteClient(client._id)"> {{ client.name }}
+                        <input type="checkbox" ng-click="deleteClient(client._id)" text="X"> {{ client.name }} {{client.phone}} {{client.email}}
                     </label>
                 </div>
 
@@ -55,6 +55,8 @@
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
                         <input type="text" class="form-control input-lg text-center" placeholder="Client name" ng-model="formData.name">
+						<input type="text" class="form-control input-lg text-center" placeholder="Client phone" ng-model="formData.phone">
+						<input type="text" class="form-control input-lg text-center" placeholder="Client email" ng-model="formData.email">
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
