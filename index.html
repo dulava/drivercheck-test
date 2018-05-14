@@ -40,7 +40,7 @@
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
                 <div class="checkbox" ng-repeat="client in clients">
                     <label>
-                        <input type="checkbox" ng-click="deleteClient(client._id)"> {{ client.text }}
+                        <input type="checkbox" ng-click="deleteClient(client._id)"> {{ client.name }}
                     </label>
                 </div>
 
@@ -54,7 +54,7 @@
                     <div class="form-group">
 
                         <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-                        <input type="text" class="form-control input-lg text-center" placeholder="Client name" ng-model="formData.text">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Client name" ng-model="formData.name">
                     </div>
 
                     <!-- createToDo() WILL CREATE NEW TODOS -->
